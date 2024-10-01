@@ -9,12 +9,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Define Settings class to manage environment variables
+
+
 class Settings(BaseSettings):
     DATABASE_URL: str
 
     class Config:
         env_file = ".env"
         extra = "allow"
+
 
 # Create an instance of Settings
 settings = Settings()
@@ -30,6 +33,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 # Define a function to get a database session
+
+
 def get_db():
     """Return a new database session."""
     db = SessionLocal()
